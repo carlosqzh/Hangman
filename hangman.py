@@ -25,16 +25,25 @@ Tendrás 7 intentos para adivinar 🤞🏽
 Buena suerte 🍀
 """
 def selected_word():
+    replacements = (
+            ("á", "a"),
+            ("é", "e"),
+            ("í", "i"),
+            ("ó", "o"),
+            ("ú", "u"),
+        )
     with open("./archivos/data.txt", "r", encoding="utf-8") as f:
         words = [i.replace("\n", "") for i in f]
     
     word_selected = random.choice(words)
+    for a, b in replacements:
+        word_selected = word_selected.replace(a, b)
     return word_selected
 
 
 def run():
-    print(menu)
+    selected_word()
 
 
 if __name__ == "__main__":
-    selected_word()
+    run()
