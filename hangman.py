@@ -1,5 +1,6 @@
 import random
 import os
+from typing import Type
 
 menu = """
 ===================================================================================================================================  
@@ -22,7 +23,6 @@ menu = """
        `""`                                ╚═════════════════════════════════════╝                                       `""`
 ===================================================================================================================================  
 ===================================================================================================================================
-
     Bienvenido al juego del ahorcado!!!
     En este juego tendrás que adivinar una palabra que la computadora elegió al azar.
     Al iniciar el juego contars con 7 vidas ❤️❤️❤️❤️❤️❤️❤️
@@ -189,7 +189,13 @@ def run():
             print(character, end=" ")
         print(IMAGES[attemps])
         print("Te quedan", attemps, "vidas ❤️")
-        letter = input("Elige una letra: ").lower()
+        try:
+            letter = input("Ingresa una letra y presiona Enter: ").lower()
+            assert letter.isalpha(), input("¡Solo se puede ingresar letras! 👀, Presiona la tecla Enter para volver a ingresar un valor.")
+            assert len(letter) == 1, input("¡Solo se puede ingresar una letra a la vez! 👀, Presiona la tecla Enter para volver a ingresar un valor.")
+        except AssertionError as ae:
+            print(ae)
+            continue  
 
         found = False
         for idx, character in enumerate(word_selected):
