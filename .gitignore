@@ -1,12 +1,2 @@
 venv/
-archivos/letter.txt
-archivos/numbers.txt
-archivos.py
-assert_statements.py
-debugging.py
-dicts_comprehensions.py
-filtrando_datos.py
-high_order_funcctions.py
-lambda.py
-list_and_dicts.py
-list_comprehensions.py
+ejercicios/
